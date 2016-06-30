@@ -1,0 +1,23 @@
+{
+  "name": "dot",
+  "version": "1.0.0",
+  "description": "Group game project",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape tests/*.js | tap-spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Olwiba/Game-Spike-DOT.git"
+  },
+  "keywords": [
+    "group",
+    "game"
+  ],
+  "author": "Ollie, Dan, Troy + George",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Olwiba/Game-Spike-DOT/issues"
+  },
+  "homepage": "https://github.com/Olwiba/Game-Spike-DOT#readme"
+}

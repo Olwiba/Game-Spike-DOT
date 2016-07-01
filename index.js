@@ -1,3 +1,5 @@
 import Router from './mvc/router'
 
-Router.listen()
+const router = new Router()
+
+router.listen()

@@ -17,4 +17,5 @@ export default class View {
     clearCanvas()
     ctx.drawImage(this.playerImg, player.POSITION.x, player.POSITION.y, player.SIZE.width, player.SIZE.height)
   }
+
 }

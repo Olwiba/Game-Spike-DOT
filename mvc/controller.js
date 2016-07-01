@@ -4,19 +4,22 @@ import View from './view'
 export default class Controller {
   constructor() {
     this.model = new Model('testName')
-    this.view = new View()
+    //view is only created in the browser
+    if(typeof document != 'undefined') {
+      this.view = new View()
+    }
   }
 
   left() {
     console.log('controller got left')
-    this.model.Player.rotateLeft()
-    this.view.render(this.model)
+    this.model.player.rotateLeft()
+    this.view.drawPlayer(this.model.player)
   }
 
   right() {
     console.log('controller got right')
-    this.model.Player.rotateRight()
-    this.view.render(this.model)
+    this.model.player.rotateRight()
+    this.view.drawPlayer(this.model.player)
   }
 
 }

@@ -17,6 +17,6 @@ export default class View {
   drawPlayer (player) {
     clearCanvas()
     // draw player on canvas
-
   }
+
 }

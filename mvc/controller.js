@@ -7,6 +7,7 @@ export default class Controller {
     //view is only created in the browser
     if(typeof document != 'undefined') {
       this.view = new View()
+      this.view.startView(this.model)
     }
   }
 

@@ -11,6 +11,11 @@ export default class View {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
   }
 
+  startView (model) {
+    //draw all the things in their starting positions
+    drawPlayer(model.player)
+  }
+
   drawPlayer (player) {
     clearCanvas()
     ctx.drawImage(this.playerImg, player.POSITION.x, player.POSITION.y, player.SIZE.width, player.SIZE.height)

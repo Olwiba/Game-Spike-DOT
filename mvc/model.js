@@ -21,4 +21,4 @@ class Player {
 		this.angle = (this.angle + 10) % 360
 	}
 
-} 
+}

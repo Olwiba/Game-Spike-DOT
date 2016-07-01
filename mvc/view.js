@@ -3,22 +3,27 @@ export default class View {
     this.canvas = document.getElementById("canvas")
     this.ctx = canvas.getContext("2d")
     // create player image element
-    this.playerImg = document.createElement('img')
-    this.playerImg.src = 'images/player.jpeg'
+    this.playerImg = new Image()
+    this.playerImg.src = '/images/player.jpeg'
   }
 
   clearCanvas () {
-    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    this.ctx.clearRect(0, 0, canvas.width, canvas.height)
   }
 
   startView (model) {
     //draw all the things in their starting positions
-    drawPlayer(model.player)
+    this.playerImg.addEventListener('load', () => {
+      this.drawPlayer(model.player)
+    })
+    console.log('view started')
   }
 
   drawPlayer (player) {
-    clearCanvas()
-    ctx.drawImage(this.playerImg, player.POSITION.x, player.POSITION.y, player.SIZE.width, player.SIZE.height)
+    console.log('draw player', Date.now())
+    this.clearCanvas()
+    // this.ctx.fillRect(10,10,200,200)
+    this.ctx.drawImage(this.playerImg, player.position.x, player.position.y, player.size.width, player.size.height)
   }
 
 }

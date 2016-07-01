@@ -52,6 +52,7 @@ class Hat {
 
 	moveRandom() {
 		if (Math.random() > 0.3) {
+			// 70%
 			switch (this.position) {
 				case (this.position.x > 0):
 					this.position.x -= 10
@@ -70,30 +71,31 @@ class Hat {
 					break; 
 				}
 
+		} else {
+
+			if (Math.random() > 0.5) {
+
+				switch (this.position) {
+					case (this.position.y > 0):
+						this.position.y -= 10
+						break;
+					case (this.position.y < 0):
+						this.position.y += 10
+						break; 
+					}
+
 			} else {
-				if (Math.random() > 0.5) {
 
-					switch (this.position) {
-						case (this.position.y > 0):
-							this.position.y -= 10
-							break;
-						case (this.position.y < 0):
-							this.position.y += 10
-							break; 
-						}
-
-				} else {
-
-					switch (this.position) {
-						case (this.position.x > 0):
-							this.position.x -= 10
-							break;
-						case (this.position.x < 0):
-							this.position.x += 10
-							break;
-						}
-
+				switch (this.position) {
+					case (this.position.x > 0):
+						this.position.x -= 10
+						break;
+					case (this.position.x < 0):
+						this.position.x += 10
+						break;
 				}
+
 			}
 		}
 	}
+}

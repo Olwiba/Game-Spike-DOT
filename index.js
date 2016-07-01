@@ -1,5 +1,5 @@
 import Router from './mvc/router'
 
-var router = new Router()
+const router = new Router()
 
 router.listen()

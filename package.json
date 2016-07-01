@@ -6,7 +6,8 @@
   "scripts": {
     "test": "tape tests/*.js | tap-spec",
     "build": "webpack --progress --profile --colors",
-    "dev": "webpack-dev-server --hot --inline"
+    "dev": "webpack-dev-server --hot --inline",
+    "lint": "eslint index.js mvc/*.js"
   },
   "repository": {
     "type": "git",

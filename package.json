@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "babel-tape-runner tests/*.js | tap-spec",
+    "test-model": "babel-tape-runner tests/model.js | tap-spec",
     "build": "webpack --progress --profile --colors",
     "dev": "webpack-dev-server --hot --inline"
   },

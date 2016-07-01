@@ -1,6 +1,6 @@
 export default class Model {
-	constructor() {
-		this.player = new Player
+	constructor(name) {
+		this.player = new Player(name)
 	}
 }
 

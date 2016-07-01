@@ -4,7 +4,9 @@
   "description": "Group game project",
   "main": "index.js",
   "scripts": {
-    "test": "tape tests/*.js | tap-spec"
+    "test": "tape tests/*.js | tap-spec",
+    "build": "webpack --progress --profile --colors",
+    "dev": "webpack-dev-server --hot --inline"
   },
   "repository": {
     "type": "git",
@@ -14,10 +16,18 @@
     "group",
     "game"
   ],
-  "author": "Ollie, Dan, Troy + George",
+  "author": "Ollie, Dan + Troy",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Olwiba/Game-Spike-DOT/issues"
   },
-  "homepage": "https://github.com/Olwiba/Game-Spike-DOT#readme"
+  "homepage": "https://github.com/Olwiba/Game-Spike-DOT#readme",
+  "devDependencies": {
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.6.0",
+    "webpack": "^1.13.1"
+  }
 }

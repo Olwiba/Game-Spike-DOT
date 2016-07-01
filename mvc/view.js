@@ -3,6 +3,9 @@ export default class View {
   var canvas = document.getElementById("canvas")
   var ctx = canvas.getContext("2d")
 
+  // create player image element
+  this.player = document.createElement('img')
+
   function clearCanvas () {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
   }
@@ -10,6 +13,7 @@ export default class View {
   function drawPlayer (player) {
     clearCanvas()
     // draw player on canvas
+
   }
 
 

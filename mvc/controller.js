@@ -5,9 +5,8 @@ export default class Controller {
   constructor() {
     this.model = new Model('testName')
     //view is only created in the browser
-    if(typeof document != 'undefined') {
-      this.view = new View()
-    }
+    this.view = new View()
+    this.view.startView(this.model)
   }
 
   left() {

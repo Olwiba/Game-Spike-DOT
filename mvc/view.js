@@ -4,9 +4,7 @@ export default class View {
     this.ctx = canvas.getContext("2d")
     // create player image element
     this.playerImg = document.createElement('img')
-    console.log(this.playerImg)
-    this.playerImg.src = '/images/player.jpeg'
-    console.log(this.playerImg)
+    this.playerImg.src = 'images/player.jpeg'
   }
 
   clearCanvas () {

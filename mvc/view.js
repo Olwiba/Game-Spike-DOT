@@ -55,6 +55,7 @@ export default class View {
     console.log('translate positively:', model.position)
     this.ctx.translate(model.position.x + model.size.width/2, model.position.y + model.size.height/2)
     this.ctx.rotate(model.angle * Math.PI / 180)
+    // this.ctx.restore()
     this.ctx.translate(-(model.position.x + model.size.width/2), -(model.position.y + model.size.height/2))
   }
 

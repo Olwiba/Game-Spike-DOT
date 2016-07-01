@@ -3,12 +3,11 @@ export default class View {
     this.canvas = document.getElementById("canvas")
     this.ctx = canvas.getContext("2d")
     // create player image element
-    this.player = document.createElement('img')
-    console.log(this.player)
-    this.player.src = '/images/player.jpeg'
-    console.log(this.player)
+    this.playerImg = document.createElement('img')
+    console.log(this.playerImg)
+    this.playerImg.src = '/images/player.jpeg'
+    console.log(this.playerImg)
   }
-
 
   clearCanvas () {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
@@ -16,7 +15,6 @@ export default class View {
 
   drawPlayer (player) {
     clearCanvas()
-    // draw player on canvas
-
+    ctx.drawImage(this.playerImg, player.POSITION.x, player.POSITION.y, player.SIZE.width, player.SIZE.height)
   }
 }

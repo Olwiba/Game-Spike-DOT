@@ -6,6 +6,9 @@ export default class View {
 
   // create player image element
   this.player = document.createElement('img')
+  console.log(this.player)
+  this.player.src = '/images/player.jpeg'
+  console.log(this.player)
 
   clearCanvas () {
     ctx.clearRect(0, 0, canvas.width, canvas.height)

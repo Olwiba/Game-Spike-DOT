@@ -1,13 +1,14 @@
 export default class View {
-
-  var canvas = document.getElementById("canvas")
-  var ctx = canvas.getContext("2d")
-
-  function clearCanvas () {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  constructor() {
+    this.canvas = document.getElementById("canvas")
+    this.ctx = canvas.getContext("2d")
   }
 
-  function drawPlayer (player) {
+  clearCanvas () {
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+  }
+
+  drawPlayer (player) {
     clearCanvas()
     // draw player on canvas
   }

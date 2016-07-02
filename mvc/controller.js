@@ -9,16 +9,21 @@ export default class Controller {
     this.view.startView(this.model)
   }
 
-  left() {
-    console.log('controller got left')
-    this.model.player.rotateLeft()
-    this.view.drawPlayer(this.model.player)
+  tick() {
+    // the game logic ticks many times per second
+    // hat positions are updated, the player is checked for collisions
+    this.model.tick()
+    this.view.update(this.model)
   }
 
-  right() {
-    console.log('controller got right')
+  rotateLeft() {
+    this.model.player.rotateLeft()
+    this.view.update(this.model)
+  }
+
+  rotateRight() {
     this.model.player.rotateRight()
-    this.view.drawPlayer(this.model.player)
+    this.view.update(this.model)
   }
 
 }

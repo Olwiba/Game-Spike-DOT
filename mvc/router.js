@@ -7,6 +7,7 @@ export default class Router {
   }
 
   listen() {
+    // need to be able to access this controller inside callback function
     console.log('listening in the router')
 
     // this is where you put your event listeners
@@ -15,16 +16,18 @@ export default class Router {
       $(document).on('keydown', (event) => {
         switch(event.which){
           case 37:
-            console.log('got left')
-            this.controller.left()
+            this.controller.rotateLeft()
             break
           case 39:
-            console.log('got right')
-            this.controller.right()
+            this.controller.rotateRight()
             break
           default:
         }
       })
     })
+    $(document).ready(() => {
+      setInterval(this.controller.tick, 500)
+    })
+    // var logicTick = window.setInterval(this.controller.tick(), 500)
   }
 }

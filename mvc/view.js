@@ -14,11 +14,12 @@ export default class View {
   startView (model) {
     //draw all the things in their starting positions
     this.playerImg.addEventListener('load', () => {
-      this.drawPlayer(model.player)
+      this.update(model)
     })
   }
 
-  drawPlayer (player) {
+  update (model) {
+    let player = model.player
     this.clearCanvas()
 
     this.ctx.save()

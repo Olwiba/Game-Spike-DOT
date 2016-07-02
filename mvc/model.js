@@ -1,7 +1,17 @@
 export default class Model {
 	constructor(name) {
 		this.player = new Player(name)
-		this.hat = new Hat()
+		this.hats = []
+	}
+
+	createRandomHat() {
+		this.hats.push(new Hat())
+	}
+
+	tick() {
+		this.hats.forEach((hat) => {
+			
+		})
 	}
 }
 
@@ -50,7 +60,7 @@ class Hat {
 		this.isAlive = true
 	}	
 
-	moveRandom() {
+	update() {
 		if (Math.random() > 0.3) {
 			// 70%
 			switch (this.position) {

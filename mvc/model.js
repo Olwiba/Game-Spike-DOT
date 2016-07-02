@@ -65,6 +65,7 @@ class Hat {
 	}	
 
 	moveRandom() {
+		let startPosition = Object.create(this.position)
 		if (Math.random() > 0.3) {
 			// 70%
 			switch (this.position) {
@@ -111,5 +112,11 @@ class Hat {
 
 			}
 		}
+		// compare the position before running the function and now
+		let positionChange = {
+			x: this.position.x - startPosition.x,
+			y: this.position.y - startPosition.y
+		}
+		console.log('Hat moved by:', positionChange)
 	}
 }

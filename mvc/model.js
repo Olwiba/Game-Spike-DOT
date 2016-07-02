@@ -59,13 +59,12 @@ class Sock {
 class Hat {
 	constructor() {
 		this.angle = 0,
-		this.position = {x: Math.floor((Math.random() - 0.5) * 100), y: Math.floor((Math.random() - 0.5) * 100)},
+		this.position = {x: Math.floor((Math.random() - 0.5) * 600), y: Math.floor((Math.random() - 0.5) * 600)},
 		this.size = {width: 50, height: 50},
 		this.isAlive = true
 	}	
 
 	moveRandom() {
-		let startPosition = Object.create(this.position)
 		if (Math.random() > 0.3) {
 			// 70%
 
@@ -107,11 +106,5 @@ class Hat {
 
 			}
 		}
-		// compare the position before running the function and now
-		let positionChange = {
-			x: this.position.x - startPosition.x,
-			y: this.position.y - startPosition.y
-		}
-		console.log('Hat moved by:', positionChange)
 	}
 }

@@ -68,46 +68,41 @@ class Hat {
 		let startPosition = Object.create(this.position)
 		if (Math.random() > 0.3) {
 			// 70%
-			switch (this.position) {
-				case (this.position.x > 0):
-					this.position.x -= 10
-					break;
-				case (this.position.x < 0):
-					this.position.x += 10
-					break;
-				}
 
-			switch (this.position) {
-				case (this.position.y > 0):
-					this.position.y -= 10
-					break;
-				case (this.position.y < 0):
-					this.position.y += 10
-					break; 
-				}
+			if (this.position.x > 0) {
+				this.position.x -= 10
+			}
+			else if (this.position.x <= 0) {
+				this.position.x += 10
+			}
+
+			if (this.position.y > 0) {
+				this.position.y -= 10
+			}
+			else if (this.position.y <= 0) {
+				this.position.y += 10
+			}
 
 		} else {
 
 			if (Math.random() > 0.5) {
 
-				switch (this.position) {
-					case (this.position.y > 0):
-						this.position.y -= 10
-						break;
-					case (this.position.y < 0):
-						this.position.y += 10
-						break; 
-					}
+				if (this.position.y > 0) {
+					this.position.y -= 10
+				}
+				else if (this.position.y <= 0) {
+					this.position.y += 10
+
+				}
 
 			} else {
 
-				switch (this.position) {
-					case (this.position.x > 0):
-						this.position.x -= 10
-						break;
-					case (this.position.x < 0):
-						this.position.x += 10
-						break;
+				if (this.position.x > 0) {
+					this.position.x -= 10
+				}
+				else if (this.position.x <= 0) {
+					this.position.x += 10
+
 				}
 
 			}

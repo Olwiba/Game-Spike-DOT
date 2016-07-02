@@ -8,6 +8,14 @@ export default class View {
     // create a hat image element
     this.hatImg = new Image()
     this.hatImg.src = '/images/hat1.png'
+    // create an array of hat images
+    this.hatImgs = new Array(4)
+    this.hatImgs.fill(undefined) // for .map to work, array elements must contain something
+    this.hatImgs = this.hatImgs.map(() => {return new Image()})
+    this.hatImgs = this.hatImgs.map((img, index) => {
+      img.src = '/images/hat' + (index + 1) + '.png'
+      return img
+    })
   }
 
   clearCanvas () {
@@ -37,7 +45,7 @@ export default class View {
     model.hats.forEach((hat) => {
       this.ctx.save()
       this.normalisePosition(hat)
-      this.ctx.drawImage(this.hatImg, hat.position.x, hat.position.x, hat.size.width, hat.size.width)
+      this.ctx.drawImage(this.hatImgs[Math.floor(Math.random()*4)], hat.position.x, hat.position.x, hat.size.width, hat.size.width)
       this.ctx.restore()
     })
   }

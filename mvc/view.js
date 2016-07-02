@@ -5,6 +5,9 @@ export default class View {
     // create player image element
     this.playerImg = new Image()
     this.playerImg.src = '/images/player.jpeg'
+    // create a hat image element
+    this.hatImg = new Image()
+    this.hatImg.src = '/images/hat1.png'
   }
 
   clearCanvas () {
@@ -13,6 +16,7 @@ export default class View {
 
   startView (model) {
     //draw all the things in their starting positions
+    
     this.playerImg.addEventListener('load', () => {
       this.update(model)
     })
@@ -33,7 +37,7 @@ export default class View {
     model.hats.forEach((hat) => {
       this.ctx.save()
       this.normalisePosition(hat)
-      this.ctx.strokeRect(hat.position.x, hat.position.x, hat.size.width, hat.size.width)
+      this.ctx.drawImage(this.hatImg, hat.position.x, hat.position.x, hat.size.width, hat.size.width)
       this.ctx.restore()
     })
   }

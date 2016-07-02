@@ -3,15 +3,26 @@ import Model from '../mvc/model'
 
 test('Random movement of hats', (t) => {
   const model = new Model()
-  // clone the position object
-  const startPos = JSON.parse(JSON.stringify(model.hats[0].position))
-  console.log('this is my pos: ', startPos)
-  console.log('this is model: ', model.hats[0].position )
-  model.hats[0].moveRandom()
+  
+  let attempts = 0
+  while (attempts < 100) {
+    // clone the position object
+    const startPos = JSON.parse(JSON.stringify(model.hats[0].position))
 
-  console.log('newpos: ', model.hats[0].position)
-  console.log('startPos: ', startPos)
-  t.notEqual(model.hats[0].position.x, startPos.x, 'a hat can randomly move along the x axis')
-  t.notEqual(model.hats[0].position.y, startPos.y, 'a hat can randomly move along the y axis')
-  t.end()
+    model.hats[0].moveRandom()
+
+    if (model.hats[0].position.x !== startPos.x && model.hats[0].position.y !== startPos.y) {
+      t.pass('a hat randomly moved along both the x and y axis')
+      t.end()
+      return
+    } else if (model.hats[0].position.y !== startPos.y) {
+      t.pass('a hat randomly moved along the y axis')
+    } else if (model.hats[0].position.x !== startPos.x) {
+      t.pass('a hat randomly moved along the x axis')
+    }
+
+  }
+  
+  t.fail('hats do not randomly move along both the x and y axis')
+
 })

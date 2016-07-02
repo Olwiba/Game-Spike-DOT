@@ -2,12 +2,11 @@ export default class View {
   constructor() {
     this.canvas = document.getElementById("canvas")
     this.ctx = canvas.getContext("2d")
+
     // create player image element
     this.playerImg = new Image()
     this.playerImg.src = '/images/player.jpeg'
-    // create a hat image element
-    this.hatImg = new Image()
-    this.hatImg.src = '/images/hat1.png'
+
     // create an array of hat images
     this.hatImgs = new Array(4)
     this.hatImgs.fill(undefined) // for .map to work, array elements must contain something
@@ -16,6 +15,7 @@ export default class View {
       img.src = '/images/hat' + (index + 1) + '.png'
       return img
     })
+    // this.hatImgs now contains an array of <img ...> elements
   }
 
   clearCanvas () {
@@ -25,31 +25,39 @@ export default class View {
   startView (model) {
     //draw all the things in their starting positions
     
+    // Update the view once the playerImg has loaded
     this.playerImg.addEventListener('load', () => {
       this.update(model)
     })
+    /* WHEN DEPLOYING: Note that we don't check if hat images have loaded
+    at any point in this code. This works fine when running locally, but may
+    cause problems when we deploy to an online server. */
   }
 
   update (model) {
     this.clearCanvas()
 
-    // display player
-    const player = model.player
+    this.displayPlayer(model.player)
+    this.displayHats(model.hats)
+  }
+
+  displayPlayer (player) {
     this.ctx.save()
     this.normalisePosition(player)
     this.rotate(player)
     this.ctx.drawImage(this.playerImg, -(player.size.width / 2), -(player.size.height / 2), player.size.width, player.size.height)
     this.ctx.restore()
+  }
 
-    // display hats
-    model.hats.forEach((hat) => {
+  displayHats (hatsArray) {
+    hatsArray.forEach((hat) => {
       this.ctx.save()
       this.normalisePosition(hat)
       this.ctx.drawImage(this.hatImgs[Math.floor(Math.random()*4)], hat.position.x, hat.position.x, hat.size.width, hat.size.width)
       this.ctx.restore()
     })
   }
-  /* @param {Object: x,y} positionObj */
+
   normalisePosition (modelEntity) {
     var x = modelEntity.position.x
     var y = modelEntity.position.y

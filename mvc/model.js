@@ -1,11 +1,11 @@
-export class Model {
+export default class Model {
 	constructor(name) {
 		this.player = new Player(name)
 		this.hat = new Hat()
 	}
 }
 
-export class Player {
+class Player {
 	constructor(name) {
 		this.playerName = name,
 		this.angle = 0,
@@ -28,7 +28,7 @@ export class Player {
 
 }
 
-export class Sock {
+class Sock {
 	constructor(angle) {
 		this.angle = angle,
 		this.position = {x: 0, y: 0},
@@ -42,7 +42,7 @@ export class Sock {
 }
 
 
-export class Hat {
+class Hat {
 	constructor() {
 		this.angle = 0,
 		this.position = {x: Math.floor((Math.random() - 0.5) * 100), y: Math.floor((Math.random() - 0.5) * 100)},

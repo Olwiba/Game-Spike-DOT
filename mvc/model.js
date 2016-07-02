@@ -5,12 +5,16 @@ export default class Model {
 	}
 
 	createRandomHat() {
+		console.log('new hat')
 		this.hats.push(new Hat())
 	}
 
 	tick() {
+		if (Math.random() < 0.03) {
+			this.createRandomHat()
+		}
 		this.hats.forEach((hat) => {
-			
+			hat.moveRandom()
 		})
 	}
 }
@@ -60,7 +64,7 @@ class Hat {
 		this.isAlive = true
 	}	
 
-	update() {
+	moveRandom() {
 		if (Math.random() > 0.3) {
 			// 70%
 			switch (this.position) {

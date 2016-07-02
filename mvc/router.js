@@ -7,8 +7,9 @@ export default class Router {
   }
 
   listen() {
-    // need to be able to access this controller inside callback function
     console.log('listening in the router')
+
+    let logicTick;
 
     // this is where you put your event listeners
     // which call controller actions
@@ -21,12 +22,17 @@ export default class Router {
           case 39:
             this.controller.rotateRight()
             break
+          case 80:
+            clearInterval(logicTick)
+            break
           default:
+            console.log(event.which)
         }
       })
     })
+
     $(document).ready(() => {
-      setInterval(this.controller.tick, 500)
+      logicTick = setInterval(() => {this.controller.tick()}, 100)
     })
     // var logicTick = window.setInterval(this.controller.tick(), 500)
   }

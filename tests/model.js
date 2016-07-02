@@ -1,16 +1,15 @@
 import test from 'tape'
 import Model from '../mvc/model'
 
-test('Random movement is working properly', (t) => {
+test('Random movement of hats', (t) => {
   const model = new Model()
-  var myPos = model.hat.position
+  var myPos = model.hats[0].position
   console.log('this is my pos: ', myPos)
-  console.log('this is model: ', model.hat.position )
-  model.hat.moveRandom()
+  console.log('this is model: ', model.hats[0].position )
+  model.hats[0].moveRandom()
 
-  console.log('newpos: ', model.hat.position)
+  console.log('newpos: ', model.hats[0].position)
   console.log('mypos: ', myPos)
-  t.notDeepEqual(myPos, myPos, 'The position has changed..')
-  t.ok(true, 'this is ok')
+  t.notDeepEqual(model.hats[0].position, myPos, 'a hat can randomly move its position')
   t.end()
 })

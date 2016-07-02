@@ -1,7 +1,7 @@
 export default class Model {
 	constructor(name) {
 		this.player = new Player(name)
-		this.hats = []
+		this.hats = [new Hat()]
 	}
 
 	createRandomHat() {

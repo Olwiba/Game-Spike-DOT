@@ -20,7 +20,7 @@ test('Random movement of hats', (t) => {
     } else if (model.hats[0].position.x !== startPos.x) {
       t.pass('a hat randomly moved along the x axis')
     }
-
+    attempts++
   }
   
   t.fail('hats do not randomly move along both the x and y axis')

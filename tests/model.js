@@ -1,16 +1,28 @@
 import test from 'tape'
 import Model from '../mvc/model'
 
-test('Random movement is working properly', (t) => {
+test('Random movement of hats', (t) => {
   const model = new Model()
-  var myPos = model.hat.position
-  console.log('this is my pos: ', myPos)
-  console.log('this is model: ', model.hat.position )
-  model.hat.moveRandom()
+  
+  let attempts = 0
+  while (attempts < 100) {
+    // clone the position object
+    const startPos = JSON.parse(JSON.stringify(model.hats[0].position))
 
-  console.log('newpos: ', model.hat.position)
-  console.log('mypos: ', myPos)
-  t.notDeepEqual(myPos, myPos, 'The position has changed..')
-  t.ok(true, 'this is ok')
-  t.end()
+    model.hats[0].moveRandom()
+
+    if (model.hats[0].position.x !== startPos.x && model.hats[0].position.y !== startPos.y) {
+      t.pass('a hat randomly moved along both the x and y axis')
+      t.end()
+      return
+    } else if (model.hats[0].position.y !== startPos.y) {
+      t.pass('a hat randomly moved along the y axis')
+    } else if (model.hats[0].position.x !== startPos.x) {
+      t.pass('a hat randomly moved along the x axis')
+    }
+    attempts++
+  }
+  
+  t.fail('hats do not randomly move along both the x and y axis')
+
 })

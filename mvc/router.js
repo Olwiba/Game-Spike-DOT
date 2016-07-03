@@ -9,22 +9,31 @@ export default class Router {
   listen() {
     console.log('listening in the router')
 
+    let logicTick;
+
     // this is where you put your event listeners
     // which call controller actions
     $(() => {
       $(document).on('keydown', (event) => {
         switch(event.which){
           case 37:
-            console.log('got left')
-            this.controller.left()
+            this.controller.rotateLeft()
             break
           case 39:
-            console.log('got right')
-            this.controller.right()
+            this.controller.rotateRight()
+            break
+          case 80:
+            clearInterval(logicTick)
             break
           default:
+            console.log(event.which)
         }
       })
     })
+
+    $(document).ready(() => {
+      logicTick = setInterval(() => {this.controller.tick()}, 100)
+    })
+    // var logicTick = window.setInterval(this.controller.tick(), 500)
   }
 }

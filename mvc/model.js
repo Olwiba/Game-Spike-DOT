@@ -18,7 +18,8 @@ export default class Model {
 		})
 	}
 }
-
+/* Give Player the ability to check if it is colliding with a hat
+ and to die if it is. */
 class Player {
 	constructor(name) {
 		this.playerName = name,
@@ -70,15 +71,13 @@ class Hat {
 
 			if (this.position.x > 0) {
 				this.position.x -= 10
-			}
-			else if (this.position.x <= 0) {
+			} else {
 				this.position.x += 10
 			}
 
 			if (this.position.y > 0) {
 				this.position.y -= 10
-			}
-			else if (this.position.y <= 0) {
+			} else {
 				this.position.y += 10
 			}
 
@@ -88,23 +87,25 @@ class Hat {
 
 				if (this.position.y > 0) {
 					this.position.y -= 10
-				}
-				else if (this.position.y <= 0) {
+				}	else {
 					this.position.y += 10
-
 				}
 
 			} else {
 
 				if (this.position.x > 0) {
 					this.position.x -= 10
-				}
-				else if (this.position.x <= 0) {
+				} else {
 					this.position.x += 10
-
 				}
 
 			}
 		}
 	}
 }
+
+/* hats need to contain something to tell the view what kind of hat it is
+	maybe: add classes that extend Hat, like 'class WizardHat', 
+	which would have one extra field...
+	e.g. this.hatDescription = "wizard"
+	or this.hatDescription = "Fedora" */

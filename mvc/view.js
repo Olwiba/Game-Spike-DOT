@@ -8,7 +8,7 @@ export default class View {
   }
 
   clearCanvas () {
-    this.ctx.clearRect(0, 0, canvas.width, canvas.height)
+    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
   }
 
   startView (model) {
@@ -16,14 +16,32 @@ export default class View {
     this.playerImg.addEventListener('load', () => {
       this.drawPlayer(model.player)
     })
-    console.log('view started')
   }
 
   drawPlayer (player) {
-    console.log('draw player', Date.now())
     this.clearCanvas()
-    // this.ctx.fillRect(10,10,200,200)
-    this.ctx.drawImage(this.playerImg, player.position.x, player.position.y, player.size.width, player.size.height)
+
+    this.ctx.save()
+    this.normalisePosition(player)
+    this.rotate(player)
+    this.ctx.drawImage(this.playerImg, -(player.size.width / 2), -(player.size.height / 2), player.size.width, player.size.height)
+    this.ctx.restore()
+  }
+  /* @param {Object: x,y} positionObj */
+  normalisePosition (model) {
+    // clone model
+    // var model = Object.create(model)
+    var x = model.position.x
+    var y = model.position.y
+
+    // Add on half the canvas size
+    x += this.canvas.width / 2
+    y += this.canvas.height / 2
+
+    this.ctx.translate(x, y);
   }
 
+  rotate (model) {
+    this.ctx.rotate(model.angle * Math.PI / 180)
+  }
 }

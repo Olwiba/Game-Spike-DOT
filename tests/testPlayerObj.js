@@ -3,3 +3,7 @@ module.exports = {
   SIZE: {width: 100, height: 100},
   angle: 0
 }
+
+// testing idea
+// smokestack
+// pipe the test to babel, then to smokestack, then test output like tap-spec
